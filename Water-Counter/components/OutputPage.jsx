@@ -1,7 +1,5 @@
-import { StatusBar } from 'expo-status-bar';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, View, Button, Alert, TextInput, FlatList} from 'react-native';
-// import  from './Main'
+import React, { useState } from 'react';
+import { StyleSheet, View, Button} from 'react-native';
 
 export default function Output({ route, navigation }) {
     const [aeration, setAeration] = useState([])
@@ -41,23 +39,8 @@ export default function Output({ route, navigation }) {
         setControlBlocks(a[3][1])
         setFillers(a[4][1])
     })
-    // let a
-    // getData(massive).then(function(result){
-    //     a = (JSON.stringify(result))
-    //     console.log(a)
-    // })
-    // const parsedData = JSON.parse(a);
-    // console.log(parsedData.fillers)
     return (
        <View style={StyleSheet.main}>
-            {/* return Object.entries(ObjectTest).map(([key, value], i) => {
-			return (
-				<div key={key}>
-					id is: {value.id} ;
-					name is: {value.name}
-				</div>
-			)
-		}) */}
             <div>Аерация:{aeration.map((value, i) => {
                     return (
                         <div key = {value.id}>

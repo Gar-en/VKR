@@ -58,7 +58,6 @@ def get_all(sql_query):
 @app.get("/result")
 def prod(numb_of_people = 1, smell = 1, turbidity = 1, pH = 1, oxidizability = 1, nitrates = 1, sulfates = 1, chlorides = 1, nitrites = 1, chromaticity = 1, hardness = 1, iron = 1):
 
-    # arg = .get('smell')
     aeration = get_all(f"SELECT id, name, price FROM aeration WHERE smell <= {smell} \
                         OR turbidity <= {turbidity} OR sulfates <= {sulfates} OR iron <= {iron};")
     
@@ -80,9 +79,3 @@ def prod(numb_of_people = 1, smell = 1, turbidity = 1, pH = 1, oxidizability = 1
                         OR nitrites <= {nitrites} OR chromaticity <= {chromaticity} OR hardness <= {hardness} OR iron <= {iron};")
     
     return {'aeration':aeration, 'big_blue':big_blue, 'containers':containers, 'control_blocks':control_blocks, 'fillers':fillers}
-
-
-#smell = arg.get('smell')
-    #filler = get_all(f"SELECT * FROM products WHERE category = '{args['vol']}' LIMIT 10;")
-    #query = "SELECT * FROM fillers WHERE smell > %s"
-    #fillers = get_all(query, (smell))
